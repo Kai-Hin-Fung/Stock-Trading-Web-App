@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    index
+{% endblock %}
+
+{% block main %}
+    <form action="/" method="get">
+        <h1>Your Profile</h1>
+        <table class = "table table striped">
+            <thead>
+                <th>stocks owned</th>
+                <th>quantity owned</th>
+                <th>current price</th>
+                <th>total value</th>
+            </thead>
+            <tbody>
+                {% for portfolio in portfolios%}
+                    <tr>
+                        <td>{{portfolio["symbol"]}}</td>
+                        <td>{{portfolio["quantity"]}}</td>
+                        <td>{{portfolio["current_price"]}}</td>
+                        <td>{{portfolio["total_value"]}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+ <p> You have ${{cash_left}} left.</p>
+    <p> The grand total of your account is {{grand_total}}.</p>
+    </form>
+{% endblock %}

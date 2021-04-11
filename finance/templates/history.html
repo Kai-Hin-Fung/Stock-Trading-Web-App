@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <form action="/" method="get">
+        <h1>Your transactions</h1>
+        <table class = "table table striped">
+            <thead>
+                <th>stocks owned</th>
+                <th>quantity</th>
+                <th>current price</th>
+            </thead>
+            <tbody>
+                {% for transaction in transactions%}
+                    <tr>
+                        <td>{{transaction["symbol"]}}</td>
+                        <td>{{transaction["quantity"]}}</td>
+                        <td>{{transaction["price"]}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </form>
+{% endblock %}
